@@ -1,0 +1,356 @@
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #fff7e6;
+    color: #333;
+    margin: 0;
+    padding: 0;
+    height: 2000px; /* สำหรับทดสอบความสามารถในการเคลื่อนย้าย */
+}
+
+.home-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    text-align: center;
+}
+
+h1 {
+    color: #ff8c00;
+    margin-bottom: 50px;
+    font-size: 24px;
+    text-align: center;
+    padding: 20px 0;
+}
+
+.choice-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    width: 80%;
+    max-width: 400px;
+}
+
+.choice-button {
+    padding: 20px;
+    background-color: #ff8c00;
+    color: white;
+    text-decoration: none;
+    font-size: 20px;
+    border-radius: 10px;
+    text-align: center;
+    transition: background-color 0.3s ease;
+}
+
+.choice-button:hover {
+    background-color: #ff7043;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #ff8c00;
+    padding: 30px 30px;
+}
+
+.navbar-logo {
+    color: white;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.navbar-links {
+    display: flex;
+    gap: 20px;
+}
+
+.navbar a {
+    text-decoration: none;
+    font-size: 17px;
+    color: white;
+    text-align: center;
+    padding: 1rem;
+}
+
+.navbar a:hover {
+    background-color: #ff3c00;
+    color: white;
+    border-radius: 20px;
+}
+
+.navbar-toggle {
+    display: none;
+    font-size: 24px;
+    cursor: pointer;
+    color: white;
+}
+
+.container {
+    width: 80%;
+    margin: auto;
+    padding-top: 20px;
+}
+
+.platform-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    flex-wrap: wrap; /* Allow buttons to wrap on smaller screens */
+    margin-bottom: 30px;
+}
+
+.platform-button {
+    padding: 10px 25px;
+    background-color: #25b40f;
+    color: white;
+    text-decoration: none;
+    border-radius: 10px;
+    font-size: 16px;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.platform-button:hover {
+    background-color: #0d5c1a;
+    transform: scale(1.05);
+}
+
+.dropdown {
+    margin-bottom: 10px;
+}
+
+.dropdown-btn {
+    width: 100%;
+    padding: 10px;
+    background-color: #ff8c00;
+    color: white;
+    border: none;
+    cursor: pointer;
+    text-align: left;
+    font-size: 18px;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+}
+
+.dropdown-btn:hover {
+    background-color: #ff7043;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.arrow {
+    transition: transform 0.3s ease;
+}
+
+.dropdown-content {
+    display: none;
+    padding: 15px;
+    background-color: #fff0e0;
+    border: 1px solid #ff8c00;
+    margin-top: 5px;
+    border-radius: 4px;
+    transition: max-height 0.5s ease-in-out, opacity 0.5s ease-in-out, transform 0.3s ease;
+    max-height: 0;
+    opacity: 0;
+    overflow: hidden;
+    transform: scaleY(0);
+}
+
+.dropdown-content.active {
+    display: block;
+    max-height: 1000px;
+    opacity: 1;
+    transform: scaleY(1);
+}
+
+.steps {
+    margin-top: 20px;
+}
+
+.step {
+    margin-bottom: 20px;
+    position: relative; /* ให้ตัว parent ของ step มี position relative */
+}
+
+.step img {
+    width: 100%;
+    max-width: 400px;
+    display: block;
+    margin: 10px auto;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    transition: transform 0.3s ease;
+}
+
+.step img:hover {
+    transform: scale(1.05);
+}
+
+.arrow.down {
+    transform: rotate(90deg); /* Rotate arrow to point down */
+}
+
+.new-badge {
+    background-color: #ff0000;
+    color: white;
+    font-size: 10px;
+    font-weight: bold;
+    padding: 2px 5px;
+    border-radius: 5px;
+    position: absolute;
+    left: 0;
+    top: 20px;
+    animation: sparkle 1.5s infinite ease-in-out;
+}
+
+.new-badge-dropdown {
+    background-color: #ff0000;
+    color: white;
+    font-size: 12px;
+    font-weight: bold;
+    padding: 2px 5px;
+    border-radius: 5px;
+    position: absolute;
+    left: 20px;
+    top: -10px;
+    animation: sparkle 1.5s infinite ease-in-out;
+}
+
+@keyframes sparkle {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.8; transform: scale(1.1); }
+}
+
+.promotion-cards {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+}
+
+.promotion-card {
+    background-color: #ffffff;
+    border: 1px solid #ff8c00;
+    border-radius: 10px;
+    overflow: hidden;
+    width: 300px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.promotion-card:hover {
+    transform: scale(1.05);
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.promo-img img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.promo-content {
+    padding: 15px;
+    text-align: center;
+}
+
+.promo-content h2 {
+    color: #ff8c00;
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+
+.promo-content p {
+    color: #555;
+    font-size: 16px;
+}
+
+/* Responsive Design */
+
+/* สำหรับหน้าจอมือถือ */
+@media only screen and (max-width: 600px) {
+    h1 {
+        font-size: 20px;
+    }
+
+    .choice-button {
+        font-size: 18px;
+    }
+
+    .navbar {
+        padding: 20px 20px;
+    }
+
+    .navbar a {
+        font-size: 15px;
+        padding: 8px 15px;
+    }
+
+    .navbar-toggle {
+        display: block; /* แสดงไอคอน hamburger */
+    }
+
+    .navbar-links {
+        display: none; /* ซ่อนเมนูจนกว่าจะกดไอคอน hamburger */
+        flex-direction: column;
+        width: 100%;
+        position: absolute;
+        top: 50px;
+        left: 0;
+        background-color: #ff8c00;
+        z-index: 1;
+    }
+
+    .navbar-links.active {
+        display: flex; /* แสดงเมนูเมื่อกดไอคอน hamburger */
+    }
+
+    .container {
+        width: 90%;
+    }
+
+    .promotion-cards {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .promotion-card {
+        width: 100%;
+    }
+}
+
+/* สำหรับหน้าจอ iPad */
+@media only screen and (min-width: 601px) and (max-width: 1024px) {
+    .container {
+        width: 85%; /* Increase width slightly for iPads */
+    }
+
+    .platform-buttons {
+        gap: 15px;
+    }
+
+    .platform-button {
+        padding: 15px 30px;
+        font-size: 18px;
+    }
+
+    .navbar {
+        padding: 25px 25px;
+    }
+
+    .navbar a {
+        font-size: 16px;
+        padding: 10px 20px;
+    }
+
+    .promotion-cards {
+        justify-content: space-around;
+    }
+
+    .promotion-card {
+        width: 45%;
+    }
+}
+
